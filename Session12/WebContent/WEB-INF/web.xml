@@ -12,6 +12,12 @@
   <servlet>
     <servlet-name>ServletOne</servlet-name>
     <servlet-class>co.edureka.RegisterServlet</servlet-class>
+    
+    <init-param>
+    	<param-name>pi</param-name>
+  		<param-value>3.14</param-value>
+    </init-param>
+    
   </servlet>
   <servlet-mapping>
     <servlet-name>ServletOne</servlet-name>
@@ -22,7 +28,24 @@
     <servlet-class>co.edureka.LoginServlet</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>ServletOne</servlet-name>
+    <servlet-name>ServletTwo</servlet-name>
     <url-pattern>/UserLogin</url-pattern>
   </servlet-mapping>
+  
+  <context-param>
+  	<param-name>driver</param-name>
+  	<param-value>com.mysql.jdbc.Driver</param-value>
+  </context-param>
+  
+  <filter>
+  	<filter-name>FilterOne</filter-name>
+  	<filter-class>co.edureka.MyFilter</filter-class>
+  </filter>
+  <filter-mapping>
+  	<filter-name>FilterOne</filter-name>
+  	<url-pattern>/UserLogin</url-pattern>
+  </filter-mapping>
+  
+  
 </web-app>
+

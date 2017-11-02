@@ -9,6 +9,7 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class HomeServlet
@@ -24,10 +25,25 @@ public class HomeServlet extends HttpServlet {
 		out.print("<b><i>Welcome Home Dear User</b></i><br/><b>");
 		
 		
-		Cookie[] ckArr = request.getCookies();
+		/*Cookie[] ckArr = request.getCookies();
 		for(Cookie ck : ckArr){
 			out.print(ck.getName()+" - "+ck.getValue()+"<br/>");
-		}
+		}*/
+		
+		//String name = request.getParameter("keyname");
+		//String age = request.getParameter("keyage");
+		
+		//String name = request.getParameter("txtName");
+		//String age = request.getParameter("txtAge");
+		//int a = Integer.parseInt(age);
+		
+		HttpSession session = request.getSession();
+		
+		String name = (String)session.getAttribute("keyName");
+		String age =  (String)session.getAttribute("keyAge");
+		
+		out.print(name+" - "+age);
+		
 		
 		out.print("</b></body></html>");
 			
