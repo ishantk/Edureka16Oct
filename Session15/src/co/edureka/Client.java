@@ -58,10 +58,15 @@ public class Client {
 		Child c = context.getBean("cRef",Child.class);
 		System.out.println(c);*/
 		
-		Person p = context.getBean("pRef",Person.class);
-		System.out.println("p is: "+p);
+		//Person p = context.getBean("pRef",Person.class);
+		//System.out.println("p is: "+p);
 		
-		System.out.println("Certificates: "+p.getCertificates());
+		//System.out.println("Certificates: "+p.getCertificates());
+		
+		CB cbRef = context.getBean("cb",CB.class);
+		CA caRef = cbRef.getCa();
+		
+		caRef.sayHello("George");
 		
 		ClassPathXmlApplicationContext cxt = (ClassPathXmlApplicationContext)context;
 		cxt.close();

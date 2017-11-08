@@ -38,7 +38,7 @@
 	   	<property name="vehicles" value="3"/>
    </bean> -->
    
-   <bean id="aRef" class="co.edureka.Address">
+  <!--  <bean id="aRef" class="co.edureka.Address">
 	   	<property name="adrsLine" value="Country Homes"/>
 	   	<property name="city" value="Bengaluru"/>
 	   	<property name="zipCode" value="520001"/>
@@ -48,8 +48,8 @@
 	   	<property name="name" value="George"/>
 	   	<property name="email" value="george@example.com"/>
 	   	<property name="age" value="30"/>
-	   	<property name="address" ref="aRef"/> <!-- Setter Injection -->
-	   	<!-- <constructor-arg ref="aRef"/>  -->  <!-- Constructor Injection -->
+	   	<property name="address" ref="aRef"/> Setter Injection
+	   	<constructor-arg ref="aRef"/>   Constructor Injection
 	   	<property name="certificates">
 	   		<list>
 	   			<value>AWS</value>
@@ -58,6 +58,16 @@
 	   			<value>CCNA</value>
 	   		</list>
 	   	</property>
-   </bean>
+   </bean> -->
+   
+   
+   <bean id="ca" class="co.edureka.CA"/>
+   <bean id="cb" class="co.edureka.CB"/>
+   
+  <!--  <bean id="cb" class="co.edureka.CB">
+   	<property name="ca" ref="ca"/>
+   </bean> -->
+   
+   <context:annotation-config/>
 
 </beans>
