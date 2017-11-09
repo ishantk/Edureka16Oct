@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Table Printing</title>
+
+	<script type="text/javascript">
+
+		var request;
+
+		function sendInfo(){
+			
+			//var v = document.tableForm.txtNumber.value;
+			//var url = "printtable.jsp?val="+v;
+			
+			var v = document.tableForm.txtName.value;
+			var url = "suggestions.jsp?name="+v;
+
+			if(window.XMLHttpRequest){
+				request = new XMLHttpRequest();
+			}else{
+				request = new ActiveXObject("Microsoft.XMLHTTP");
+			}
+
+			try{
+					request.onreadystatechange = getInfo;
+					request.open("GET", url, true);
+					request.send();
+			}catch (e) {
+				alert("Unable to Process Your Request");
+			}
+		}
+
+		function getInfo(){
+			if(request.readyState == 4){
+				var res = request.responseText;
+				document.getElementById('data').innerHTML = res;
+			}
+		}
+
+	</script>
+
+</head>
+<body>
+
+	<center>
+		
+		<h3></>Table Printing:</h3>
+		<br/><br/>
+		<form name="tableForm">
+			<!-- Enter a Number: <input type="text" name="txtNumber" placeholder="eg: 10" onkeyup="sendInfo()"> -->
+			Search: <input type="text" name="txtName" placeholder="eg: john" onkeyup="sendInfo()">
+		</form>
+	
+		<br/><br/>
+		<span id="data">
+		
+		</span>
+	
+	</center>
+
+</body>
+</html>
